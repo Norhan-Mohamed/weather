@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:weatherapp/Api.dart';
+import 'package:weatherapp/Model/singleForecastRead.dart';
 import 'package:weatherapp/Model/weatherResponse.dart';
 
 class Home extends StatefulWidget {
@@ -14,7 +15,8 @@ class _homeState extends State<Home> {
   final twoDaysfromNow = DateTime.now().add(const Duration(days: 2));
   final ThreeDaysFromNow = DateTime.now().add(const Duration(days: 3));
   final FourDaysFromNow = DateTime.now().add(const Duration(days: 4));
-  List<WeatherResponse> fiveDaysWeather = [];
+
+  List<SingleForecastRead> fiveDaysWeather = [];
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -26,6 +28,28 @@ class _homeState extends State<Home> {
                 print(snapShot.error.toString());
               }
               if (snapShot.hasData) {
+                //here
+                if (snapShot.data!.list
+                    .where((element) =>
+                        element.dt_txt.split("") ==
+                        fiveDaysWeather.first.dt_txt.split(""))
+                    .isNotEmpty) {
+                  print(fiveDaysWeather);
+                } else {
+                  fiveDaysWeather.add(snapShot.data!.list.first);
+                }
+/*
+                snapShot.data!.list.forEach((element) {
+                  // snapShot.data!.list.first.dt_txt.split("")[0] ==
+                  // fiveDaysWeather.indexOf(element);
+                  if (snapShot.data!.list.first.dt_txt.split("")[0] ==
+                      fiveDaysWeather[0]) {
+                    print(fiveDaysWeather);
+                  }else{
+                    fiveDaysWeather.add(snapShot.data!.list.first);
+                  }
+                });
+*/
                 print(snapShot.data!.toMap().toString());
                 return Container(
                   height: double.infinity,
@@ -135,8 +159,7 @@ class _homeState extends State<Home> {
                               SizedBox(
                                 height: 20,
                               ),
-                              Text(snapShot.data!.list.first.main.temp
-                                  .toString()),
+                              Text(fiveDaysWeather[8].main.temp.toString()),
                             ],
                           ),
                         ),
@@ -150,8 +173,7 @@ class _homeState extends State<Home> {
                               SizedBox(
                                 height: 20,
                               ),
-                              Text(snapShot.data!.list.first.main.temp
-                                  .toString()),
+                              Text(fiveDaysWeather[16].main.temp.toString()),
                             ],
                           ),
                         ),
@@ -165,8 +187,7 @@ class _homeState extends State<Home> {
                               SizedBox(
                                 height: 20,
                               ),
-                              Text(snapShot.data!.list.first.main.temp
-                                  .toString()),
+                              Text(fiveDaysWeather[24].main.temp.toString()),
                             ],
                           ),
                         ),
@@ -180,8 +201,7 @@ class _homeState extends State<Home> {
                               SizedBox(
                                 height: 20,
                               ),
-                              Text(snapShot.data!.list.first.main.temp
-                                  .toString()),
+                              Text(fiveDaysWeather[32].main.temp.toString()),
                             ],
                           ),
                         ),
