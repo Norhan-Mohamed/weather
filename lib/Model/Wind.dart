@@ -1,7 +1,7 @@
 class Wind {
-  late double speed;
-  late double deg;
-  late double gust;
+  late double? speed;
+  late double? deg;
+  late double? gust;
 
   Wind({
     required this.speed,

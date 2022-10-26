@@ -1,13 +1,13 @@
 class MainDetails {
-  late double temp;
-  late double feels_like;
-  late double temp_min;
-  late double temp_max;
+  late double? temp;
+  late double? feels_like;
+  late double? temp_min;
+  late double? temp_max;
   late int? pressure;
   //late int see_level;
   late int? grnd_level;
   late int? humidity;
-  late double temp_kf;
+  late double? temp_kf;
 
   MainDetails({
     required this.temp,

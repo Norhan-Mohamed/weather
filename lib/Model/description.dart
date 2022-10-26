@@ -1,8 +1,8 @@
 class WeatherDescription {
-  late int id;
-  late String main;
-  late String description;
-  late String icon;
+  late int? id;
+  late String? main;
+  late String? description;
+  late String? icon;
   WeatherDescription({
     required this.id,
     required this.main,

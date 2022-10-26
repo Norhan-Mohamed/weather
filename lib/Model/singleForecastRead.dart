@@ -11,9 +11,9 @@ class SingleForecastRead {
   late Clouds clouds;
   late Wind wind;
   late int? visibility;
-  late double pop;
+  late double? pop;
   late System sys;
-  late String dt_txt;
+  late String? dt_txt;
 
   SingleForecastRead({
     required this.dt,

@@ -31,25 +31,27 @@ class _homeState extends State<Home> {
                 //here
                 if (snapShot.data!.list
                     .where((element) =>
-                        element.dt_txt.split("") ==
-                        fiveDaysWeather.first.dt_txt.split(""))
+                        element.dt_txt?.split("") ==
+                        fiveDaysWeather.first.dt_txt?.split(""))
                     .isNotEmpty) {
                   print(fiveDaysWeather);
                 } else {
                   fiveDaysWeather.add(snapShot.data!.list.first);
                 }
-/*
+
                 snapShot.data!.list.forEach((element) {
-                  // snapShot.data!.list.first.dt_txt.split("")[0] ==
-                  // fiveDaysWeather.indexOf(element);
-                  if (snapShot.data!.list.first.dt_txt.split("")[0] ==
-                      fiveDaysWeather[0]) {
-                    print(fiveDaysWeather);
-                  }else{
-                    fiveDaysWeather.add(snapShot.data!.list.first);
+                  if (fiveDaysWeather
+                      .where((secElement) =>
+                          element.dt_txt?.split('')[0] ==
+                          secElement.dt_txt?.split('')[0])
+                      .toList()
+                      .isNotEmpty) {
+                    fiveDaysWeather.add(element);
+                  } else {
+                    print("fail");
                   }
                 });
-*/
+
                 print(snapShot.data!.toMap().toString());
                 return Container(
                   height: double.infinity,
@@ -81,7 +83,7 @@ class _homeState extends State<Home> {
                               ),
                               child: Center(
                                 child: Text(
-                                  snapShot.data!.city.name,
+                                  snapShot.data!.city.name.toString(),
                                   style: TextStyle(
                                     color: Colors.grey,
                                   ),
@@ -116,7 +118,7 @@ class _homeState extends State<Home> {
                         height: 50,
                       ),
                       Text(
-                        snapShot.data!.city.name,
+                        snapShot.data!.city.name.toString(),
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 25,
@@ -125,7 +127,8 @@ class _homeState extends State<Home> {
                       SizedBox(
                         height: 30,
                       ),
-                      Text(snapShot.data!.list.first.weather.first.icon),
+                      Text(snapShot.data!.list.first.weather.first.icon
+                          .toString()),
                       SizedBox(height: 20),
                       Text(snapShot.data!.list.first.main.temp.toString()),
                       SizedBox(height: 5),

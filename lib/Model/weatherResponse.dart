@@ -2,7 +2,7 @@ import 'package:weatherapp/Model/city.dart';
 import 'package:weatherapp/Model/singleForecastRead.dart';
 
 class WeatherResponse {
-  late String cod;
+  late String? cod;
   late int? message;
   late int? cnt;
   late List<SingleForecastRead> list;

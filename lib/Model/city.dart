@@ -1,14 +1,14 @@
 import 'package:weatherapp/Model/Coord.dart';
 
 class City {
-  late int id;
-  late String name;
+  late int? id;
+  late String? name;
   late Coord coord;
-  late String country;
-  late int population;
-  late int timezone;
-  late int sunrise;
-  late int sunset;
+  late String? country;
+  late int? population;
+  late int? timezone;
+  late int? sunrise;
+  late int? sunset;
 
   City({
     required this.id,
