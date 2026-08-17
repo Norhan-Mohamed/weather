@@ -1,16 +1,42 @@
-# weatherapp
+# Weather App
 
-A new Flutter project.
+Started: **October 25, 2022**
 
-## Getting Started
+A clean Flutter weather forecast app using the OpenWeatherMap 5-day forecast API.
 
-This project is a starting point for a Flutter application.
+![Weather App Screenshot](assets/screenshot.png)
 
-A few resources to get you started if this is your first Flutter project:
+## Features
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- Current conditions with temperature, high/low, feels like, humidity, and wind
+- 5-day forecast with weather icons
+- City search
+- Pull to refresh
+- Loading, error, and empty states with retry
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Getting started
+
+```bash
+flutter pub get
+flutter run
+```
+
+The OpenWeatherMap API key is set in `lib/config.dart`, so the app runs immediately.
+
+## Project structure
+
+```
+lib/
+  main.dart           App entry point
+  home_screen.dart    Home screen and weather UI
+  weather_api.dart    OpenWeatherMap networking
+  config.dart         API configuration
+  models/             Response models
+assets/
+  screenshot.png      App preview
+```
+
+## Notes
+
+- Temperatures are requested in Celsius (`units=metric`).
+- The default location matches the original project coordinates (northern Italy) until you search for a city.
